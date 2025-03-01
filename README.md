@@ -1,7 +1,12 @@
-# RVPC
-The EURO 1.00 Risc-V personal computer with VGA and Keyboard and Woz like monitor. The purpose of this project is to make educational platform which people can use to learn RISCV assembler and experiment like in the old days in 1980s :)
+# RadionaOrg ZigZag badge
 
-![RVPC-1](DOCUMENTS/RVPC-1.jpg)
+![ZigZag](DOCUMENTS/ZigZag.png)
+
+More details soon!!!
+
+Starting point for our badge was RVPC from Olimex, we have preserved most of schematics, and added LEDs
+
+The EURO 1.00 Risc-V personal computer with VGA and Keyboard and Woz like monitor. The purpose of this project is to make educational platform which people can use to learn RISCV assembler and experiment like in the old days in 1980s :)
 
 https://www.olimex.com/Products/Retro-Computers/RVPC/open-source-hardware
 
