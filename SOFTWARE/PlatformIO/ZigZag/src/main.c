@@ -44,10 +44,10 @@ void HardFault_Handler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 #define LETTER_SPACE  600  // Space between letters
 #define WORD_SPACE    1400 // Space between words
 
-#define FIRST_LED 1
-
 uint8_t counter = 0;
+uint32_t long_press_counter = 0;
 uint8_t interrupt = 0;
+uint8_t long_press = 0;
 
 const uint8_t font_5x5[37][5] = {
     // A-Z
@@ -150,9 +150,6 @@ void EXTI7_0_IRQHandler(void){
     {
 		interrupt=1;
     }
-	//EXTI_ClearITPendingBit(EXTI_Line2);     /* Clear Flag */
-	      // Acknowledge the interrupt
-    //EXTI->INTFR = EXTI_Line2;
 	EXTI_ClearITPendingBit(EXTI_Line2);
 }
 
@@ -186,30 +183,32 @@ void blink_string(const char* text, uint8_t led) {
 }
 
 void raider(void){
-	for ( uint8_t i=FIRST_LED; i<5;i++ ){
-		ledWrite(i,1);
+		ledWrite(0,1);
 		DelayIfBTN_Ms(RAIDER_DELAY_MS);
-		if(i==1){
-			DelayIfBTN_Ms(RAIDER_DELAY_MS);
-		}
-		ledWrite(i,0);
-		//DelayIfBTN_Ms(RAIDER_DELAY_MS);
-		if(!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)){
-			break;
-		}		
-	}
-	for ( uint8_t i=4; i>=FIRST_LED;i-- ){
-		ledWrite(i,1);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);		
+		ledWrite(0,0);
+		ledWrite(1,1);
 		DelayIfBTN_Ms(RAIDER_DELAY_MS);
-		if(i==4){
-			DelayIfBTN_Ms(RAIDER_DELAY_MS);
-		}		
-		ledWrite(i,0);
-		//DelayIfBTN_Ms(RAIDER_DELAY_MS);
-		if(!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)){
-			break;
-		}			
-	}	
+		ledWrite(1,0);
+		ledWrite(2,1);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);		
+		ledWrite(2,0);
+		ledWrite(3,1);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);
+		ledWrite(3,0);
+		ledWrite(4,1);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);		
+		ledWrite(4,0);
+		ledWrite(3,1);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);
+		ledWrite(3,0);
+		ledWrite(2,1);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);
+		ledWrite(2,0);
+		ledWrite(1,1);
+		DelayIfBTN_Ms(RAIDER_DELAY_MS);		
+		ledWrite(1,0);
 }
 
 void displayCharacter(char c, int scrollSpeed) {
@@ -252,14 +251,7 @@ void scrollText(const char *text, int scrollSpeed) {
 /** Enable Interrupt falling edge A2*/
 void EXTI0_INT_INIT (void)
 {
-
-  //RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1, DISABLE); 
-  //USART_Cmd(USART1, DISABLE);
-
   AFIO->PCFR1 = AFIO->PCFR1 & 0xFFFF7FFF; //Sets PA1 & PA2 as I/O by clearing bit 15  As we are not using external oscilator
-
-  // Reset PD6 to ensure it's in GPIO mode
-  //GPIOD->CFGLR &= ~(0xF << (6 * 4));
 
   GPIO_InitTypeDef GPIO_InitStructure = {0};
   EXTI_InitTypeDef EXTI_InitStructure = {0};
@@ -299,6 +291,23 @@ int main(void) {
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOD | RCC_APB2Periph_AFIO, ENABLE);
 
+	// Use the internal HSI oscillator
+	RCC->CTLR |= (1 << 0);   // Enable HSI
+	while (!(RCC->CTLR & (1 << 1))); // Wait for HSI to be ready
+
+	RCC->CFGR0 &= ~(0x3);    // Select HSI as system clock (SW[1:0] = 00)
+
+	// Disable HSE (external oscillator) completely if not used
+	RCC->CTLR &= ~(1 << 16); // HSEON = 0
+	RCC->CTLR &= ~(1 << 17); // HSEBYP = 0
+
+	// Enable GPIOD & AFIO clock
+	RCC->APB2PCENR |= (1 << 5) | (1 << 0);  // Enable GPIOD & AFIO
+
+	// Ensure AFIO remap is not interfering with PD6
+	AFIO->PCFR1 &= ~(1 << 15); // Keep PA1 & PA2 as GPIO
+	AFIO->PCFR1 &= ~(1 << 24); // Ensure no remapping affects PD6
+
 	GPIO_InitTypeDef cfgC = {0};
     cfgC.GPIO_Mode = GPIO_Mode_Out_PP;
    	cfgC.GPIO_Pin = GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_4;
@@ -326,9 +335,27 @@ int main(void) {
 					else{
 						counter = 0;
 					}
+					while(!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)){
+						long_press_counter++;
+					}
+					if(long_press_counter>=500000){
+						long_press = 1;
+					}
+					long_press_counter = 0;
 				}
 		}
 
+		if(long_press){
+			ledsON();
+			Delay_Ms(500);
+			ledsOFF();
+			Delay_Ms(500);
+			ledsON();
+			Delay_Ms(500);
+			ledsOFF();
+			Delay_Ms(500);
+			long_press = 0;
+		}
 
 		if(counter==0){
 			__WFI(); // sleep mode waits for button press interrupt
@@ -342,56 +369,12 @@ int main(void) {
 			blink_string("SOS",3);
 			blink_string("SOS",2);			
 			blink_string("SOS",1);
-			blink_string("SOS",FIRST_LED);
+			blink_string("SOS",0);
 		}
 		else if(counter==3){
 			scrollText("RADIONA", ROW_DELAY_MS);  // Scroll text with a 200ms delay
 			DelayIfBTN_Ms(LOOP_DELAY_MS);			
 		}
-
-/*
-			switch(counter)
-		{
-			case 0:
-					scrollText("BSIDESZG", ROW_DELAY_MS);
-					Delay_Ms(LOOP_DELAY_MS);
-				break;
-			case 1:
-					ledWrite(0,0);
-					ledWrite(1,1);
-					ledWrite(2,0);
-					ledWrite(3,0);
-					ledWrite(4,0);
-				break;
-			case 2:
-					ledWrite(0,0);
-					ledWrite(1,0);
-					ledWrite(2,1);
-					ledWrite(3,0);
-					ledWrite(4,0);
-				break;
-			case 3:
-					ledWrite(0,0);
-					ledWrite(1,0);
-					ledWrite(2,0);
-					ledWrite(3,1);
-					ledWrite(4,0);
-				break;
-			case 4:
-					ledWrite(0,0);
-					ledWrite(1,0);
-					ledWrite(2,0);
-					ledWrite(3,0);
-					ledWrite(4,1);
-				break;
-			case 5:
-				__WFI(); // sleep mode waits for button press interrupt
-				break;				
-			default:
-				ledsOFF();
-		}
-*/
-
 	}
 }
 
