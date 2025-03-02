@@ -337,9 +337,10 @@ int main(void) {
 					}
 					while(!GPIO_ReadInputDataBit(GPIOA, GPIO_Pin_2)){
 						long_press_counter++;
-					}
-					if(long_press_counter>=500000){
-						long_press = 1;
+						if(long_press_counter>=1000000){
+							long_press = 1;
+							break;	
+						}
 					}
 					long_press_counter = 0;
 				}
@@ -348,13 +349,13 @@ int main(void) {
 		if(long_press){
 			ledsON();
 			Delay_Ms(500);
-			ledsOFF();
-			Delay_Ms(500);
-			ledsON();
-			Delay_Ms(500);
-			ledsOFF();
-			Delay_Ms(500);
+			for(int i=0;i<5;i++){
+				ledWrite(i,0);
+				Delay_Ms(500);
+			}
 			long_press = 0;
+			__WFI();
+			counter = 1;
 		}
 
 		if(counter==0){
