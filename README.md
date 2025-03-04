@@ -1,6 +1,6 @@
 # RadionaOrg ZigZag badge
 
-![ZigZag](DOCUMENTS/ZigZag.png)
+![ZigZag](DOCUMENTS/ZigZagRender.png)
 
 More details soon!!!
 
@@ -14,3 +14,5 @@ https://www.olimex.com/Products/Retro-Computers/RVPC/open-source-hardware
 * Hardware is released under CERN Open Hardware Licence Version 2 - Strongly Reciprocal
 * Software is released under GPL V3 Licensee
 * Documentation is released under CC BY-SA 4.0
+
+Top side PCB design by Damir Prizmić
