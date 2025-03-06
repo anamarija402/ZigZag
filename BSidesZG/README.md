@@ -57,7 +57,7 @@ Thank's for playing! We hope you like it!
 Top side PCB design by Damir Prizmić
 Back side PCB design by Goran Mahovlić
 
-Idea: BSidesZG, Damir Prizmić, Goran Mahovlić, BalCCon Badge, kost, 1g0r, Olimex RVPC
+Idea: BSidesZG, Ante Jurjević, Damir Prizmić, Goran Mahovlić, kost, 1g0r, BalCCon Badge, Olimex RVPC
 
 Code:  Goran Mahovlić 
 
