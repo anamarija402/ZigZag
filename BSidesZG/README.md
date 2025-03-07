@@ -67,7 +67,7 @@ Big thanks to Olimex for all RVPC code examples...
 
 Known problems (HW): Battery holder footprint is not good, if you push battery to end position it can brick battery
 
-Known problems (SW): In one key you will nottice missing H letter (gramar) - it should be THR instead of just TR
+Known problems (SW): In one key you will nottice missing H letter (gramar) - use your key as is ignore gramar.
 
 
 
