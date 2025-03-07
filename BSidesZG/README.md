@@ -62,3 +62,17 @@ Idea: BSidesZG, Ante Jurjević, Damir Prizmić, Goran Mahovlić, kost, 1g0r, Bal
 Code:  Goran Mahovlić 
 
 Big thanks to Olimex for all RVPC code examples...
+
+Known problems (HW): Battery holder footprint is not good, if you push battery to end position it can brick battery
+
+Known problems (SW): In one key you will nottice missing H letter (gramar) - it should be THR instead of just TR
+
+
+
+| Event  | No. of badges | Offered Solutions | Accepted solutions |
+| ------ | ------------- | ----------------- | ------------------ |
+| BSidesZG | 70 | 1 | 1 |
+
+Badge solvers
+
+BSidesZG - 07.03.2025. - 
