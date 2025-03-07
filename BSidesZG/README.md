@@ -39,7 +39,9 @@ Who gets all 5 messages gets the prize!!!
 ### PoV
 
 GOTO 2DARK
+
 SET BLEND 2S
+
 MOVE BADGE
 
 1,2,3 PoV messages are solutions to first 3 tasks
