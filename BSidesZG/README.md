@@ -69,12 +69,14 @@ Known problems (HW): Battery holder footprint is not good, if you push battery t
 
 Known problems (SW): In one key you will nottice missing H letter (gramar) - use your key as is ignore gramar.
 
-
+### Events
 
 | Event  | No. of badges | Offered Solutions | Accepted solutions |
 | ------ | ------------- | ----------------- | ------------------ |
 | BSidesZG | 70 | 1 | 1 |
 
-Badge solvers
+### Badge solvers
 
-BSidesZG - 07.03.2025. - 
+| Event  | Date | Name |
+| ------ | ------------- | ----------------- |
+| BSidesZG | 07.03.2025. | Jurica Radović |
