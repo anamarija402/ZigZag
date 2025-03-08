@@ -113,6 +113,10 @@ For programming you only need GND and PD6 test point.
 
 ![TestPoints](DOCUMENTS/ZigZag_TP.png)
 
+### Schematic
+
+![ZigZag](DOCUMENTS/ZigZag.pdf)
+
 ### Licensee
 * Hardware is released under CERN Open Hardware Licence Version 2 - Strongly Reciprocal
 * Software is released under GPL V3 Licensee
