@@ -78,7 +78,7 @@ Applying paste to front side
 
 ![Assebled](DOCUMENTS/assembled.png)
 
-![Assebled](DOCUMENTS/conference.png)
+![Conference](DOCUMENTS/conference.png)
 
 ### Implemented features
 
@@ -105,7 +105,13 @@ We are using VScode + PlatformIO for building and flash.sh for flashing...
 
 We are using raspberry pico and this software for programming https://github.com/aappleby/picorvd 
 
-Be warned not to remove initial 5 sec delay if you want to keep badge programmable with picorvd
+Be warned not to remove initial 5 sec delay if you want to keep badge programmable with picorvd.
+
+For programming you only need GND and PD6 test point.
+
+### Test points
+
+![TestPoints](DOCUMENTS/ZigZag_TP.png)
 
 ### Licensee
 * Hardware is released under CERN Open Hardware Licence Version 2 - Strongly Reciprocal
