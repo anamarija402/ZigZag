@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "misc.h": "c",
-        "ch32v00x.h": "c",
-        "keyboard.h": "c",
-        "vga.h": "c"
-    }
-}

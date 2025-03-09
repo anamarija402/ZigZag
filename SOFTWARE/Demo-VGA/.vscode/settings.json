@@ -1,8 +1,0 @@
-{
-    "files.associations": {
-        "string.h": "c",
-        "ch32v00x.h": "c",
-        "chardefs.h": "c",
-        "keyboard.h": "c"
-    }
-}
