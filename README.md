@@ -139,6 +139,6 @@ Big thanks to Olimex for all RVPC code examples...
 
 ### Badge solvers
 
-| Event  | Date | Name |
-| ------ | ------------- | ----------------- |
-| BSidesZG | 07.03.2025. | Jurica Radović |
+| Event  | Date | Name | Needed time |
+| ------ | ------------- | ----------------- |-----|
+| BSidesZG | 07.03.2025. | Jurica Radović |~4h |
