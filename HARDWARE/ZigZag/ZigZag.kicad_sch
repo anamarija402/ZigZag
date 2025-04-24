@@ -2626,12 +2626,6 @@
 		(uuid "43adba2e-cee5-4be5-8e21-aa85aed8035e")
 	)
 	(junction
-		(at 49.53 87.63)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "669aa0d6-07f7-4f5b-8270-162dd5b5fcd8")
-	)
-	(junction
 		(at 80.01 137.16)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3481,16 +3475,6 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 87.63) (xy 49.53 92.71)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9d0ef776-6248-4975-b08d-b9f7e16fb7ac")
-	)
-	(wire
-		(pts
 			(xy 80.01 137.16) (xy 80.01 142.24)
 		)
 		(stroke
@@ -3658,6 +3642,16 @@
 			(type default)
 		)
 		(uuid "acc52383-8c40-437a-ae9b-487d598a9f6d")
+	)
+	(wire
+		(pts
+			(xy 38.1 92.71) (xy 38.1 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae52ecdb-358e-491c-99f3-e146040dd15d")
 	)
 	(wire
 		(pts
@@ -3831,16 +3825,6 @@
 	)
 	(wire
 		(pts
-			(xy 44.45 87.63) (xy 49.53 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d7f246b7-04d6-49d2-8c4f-9c2f1c128af6")
-	)
-	(wire
-		(pts
 			(xy 146.05 40.64) (xy 184.15 40.64)
 		)
 		(stroke
@@ -3881,7 +3865,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 62.23) (xy 49.53 87.63)
+			(xy 49.53 62.23) (xy 49.53 92.71)
 		)
 		(stroke
 			(width 0)
@@ -10028,15 +10012,15 @@
 	)
 	(symbol
 		(lib_id "OLIMEX_OTHER:TESTPAD")
-		(at 41.91 87.63 180)
+		(at 38.1 86.36 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "9c8cb27e-808a-4d1c-9ac9-dc65449877c6")
-		(property "Reference" "GND1"
-			(at 36.83 87.63 0)
+		(property "Reference" "PAD2"
+			(at 38.1 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10044,7 +10028,7 @@
 			)
 		)
 		(property "Value" "TESTPAD"
-			(at 44.45 84.709 0)
+			(at 41.021 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10053,8 +10037,8 @@
 				(hide yes)
 			)
 		)
-		(property "Footprint" "OLIMEX_Other-FP:arc_90_0.5"
-			(at 48.006 85.725 0)
+		(property "Footprint" "Custom:arc_90_0.5"
+			(at 40.005 92.456 0)
 			(effects
 				(font
 					(size 0.508 0.508)
@@ -10063,7 +10047,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 87.63 90)
+			(at 38.1 86.36 90)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10071,7 +10055,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 41.91 87.63 0)
+			(at 38.1 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10080,7 +10064,7 @@
 			)
 		)
 		(property "Fieldname 1" "Value 1"
-			(at 41.91 87.63 0)
+			(at 38.1 86.36 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10089,7 +10073,7 @@
 			)
 		)
 		(property "Fieldname2" "Value2"
-			(at 41.91 87.63 0)
+			(at 38.1 86.36 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10098,7 +10082,7 @@
 			)
 		)
 		(property "Fieldname3" "Value3"
-			(at 41.91 87.63 0)
+			(at 38.1 86.36 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -10112,7 +10096,7 @@
 		(instances
 			(project "RVPC_Rev_B"
 				(path "/61827188-a485-403a-89e3-b210d5eae0ab"
-					(reference "GND1")
+					(reference "PAD2")
 					(unit 1)
 				)
 			)
@@ -11293,6 +11277,69 @@
 			(project "RVPC_Rev_B"
 				(path "/61827188-a485-403a-89e3-b210d5eae0ab"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OLIMEX_Power:GND")
+		(at 38.1 92.71 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e11a1b7e-1e93-4a8d-82d2-79d448d27559")
+		(property "Reference" "#PWR021"
+			(at 38.1 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 38.1 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 38.1 92.71 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 38.1 92.71 0)
+			(effects
+				(font
+					(size 1.524 1.524)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 38.1 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a55515f4-8b63-49db-a4d8-c0608bc58207")
+		)
+		(instances
+			(project "ZigZag"
+				(path "/61827188-a485-403a-89e3-b210d5eae0ab"
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)

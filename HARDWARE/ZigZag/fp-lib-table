@@ -5,4 +5,5 @@
   (lib (name "OLIMEX_RLC-FP")(type "KiCad")(uri "/home/goran/Projects/RVPC/KiCAD/KiCAD_Footprints/OLIMEX_RLC-FP.pretty")(options "")(descr ""))
   (lib (name "OLIMEX_Other-FP")(type "KiCad")(uri "/home/goran/Projects/RVPC/KiCAD/KiCAD_Footprints/OLIMEX_Other-FP.pretty")(options "")(descr ""))
   (lib (name "radiona")(type "KiCad")(uri "/home/goran/Projects/ulx4m/footprints/logo/radiona.pretty")(options "")(descr ""))
+  (lib (name "Custom")(type "KiCad")(uri "/home/goran/projects/RVPC/KiCAD/KiCAD_Footprints/Custom.pretty")(options "")(descr ""))
 )
