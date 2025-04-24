@@ -466,7 +466,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "RVPC_Rev_B.kicad_pro",
+    "filename": "ZigZag.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -625,5 +625,11 @@
       "Root"
     ]
   ],
-  "text_variables": {}
+  "text_variables": {
+    "project_creator": "Intergalaktik d.o.o.",
+    "project_license": "GPL-3.0 license",
+    "project_name": "ZigZag",
+    "project_version": "v 0.1",
+    "project_year": "2025."
+  }
 }
